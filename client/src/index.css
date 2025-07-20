@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(222, 84%, 4.9%);
+  --muted: hsl(210, 40%, 98%);
+  --muted-foreground: hsl(215, 16%, 47%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(222, 84%, 4.9%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(222, 84%, 4.9%);
+  --border: hsl(214, 32%, 91%);
+  --input: hsl(214, 32%, 91%);
+  --primary: hsl(262, 83%, 58%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(210, 40%, 98%);
+  --secondary-foreground: hsl(222, 84%, 4.9%);
+  --accent: hsl(210, 40%, 98%);
+  --accent-foreground: hsl(222, 84%, 4.9%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --ring: hsl(262, 83%, 58%);
+  --radius: 0.75rem;
+  --modern-primary: hsl(262, 83%, 58%);
+  --modern-secondary: hsl(198, 93%, 60%);
+  --modern-accent: hsl(48, 96%, 53%);
+  --modern-success: hsl(142, 76%, 36%);
+  --modern-warning: hsl(38, 92%, 50%);
+  --modern-error: hsl(0, 84%, 60%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(270, 95%, 75%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+}
+
+@layer utilities {
+  .text-modern-primary {
+    color: var(--modern-primary);
+  }
+  
+  .text-modern-secondary {
+    color: var(--modern-secondary);
+  }
+  
+  .text-modern-accent {
+    color: var(--modern-accent);
+  }
+  
+  .text-modern-success {
+    color: var(--modern-success);
+  }
+  
+  .bg-modern-primary {
+    background-color: var(--modern-primary);
+  }
+  
+  .bg-modern-secondary {
+    background-color: var(--modern-secondary);
+  }
+  
+  .bg-modern-accent {
+    background-color: var(--modern-accent);
+  }
+  
+  .bg-modern-success {
+    background-color: var(--modern-success);
+  }
+  
+  .border-modern-primary {
+    border-color: var(--modern-primary);
+  }
+  
+  .border-modern-secondary {
+    border-color: var(--modern-secondary);
+  }
+  
+  .hover\:bg-modern-primary:hover {
+    background-color: var(--modern-primary);
+  }
+  
+  .hover\:bg-modern-secondary:hover {
+    background-color: var(--modern-secondary);
+  }
+  
+  .hover\:text-modern-primary:hover {
+    color: var(--modern-primary);
+  }
+  
+  .hover\:text-modern-secondary:hover {
+    color: var(--modern-secondary);
+  }
+  
+  .gradient-modern {
+    background: linear-gradient(135deg, var(--modern-primary), var(--modern-secondary));
+  }
+  
+  .gradient-accent {
+    background: linear-gradient(135deg, var(--modern-secondary), var(--modern-accent));
+  }
+}
