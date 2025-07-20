@@ -1,32 +1,54 @@
 import { Link } from "wouter";
-import { Twitter, Linkedin, Facebook } from "lucide-react";
+import { Twitter, Linkedin, Facebook, Mail, Phone, MapPin, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
+import fungroIcon from "@/assets/fungro-icon.svg";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="relative bg-gradient-to-br from-neutral-900 via-neutral-800 to-purple-900 text-white py-16 overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(120,113,246,0.3),transparent_50%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.3),transparent_50%)]"></div>
+      
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8">
-          <div>
-            <img 
-              src="https://cdn.prod.website-files.com/638b48215fd2fd34538fa6bc/638c80735fd2fd0810a24fba_funngro-logo.svg" 
-              alt="Funngro Logo" 
-              className="h-8 w-auto mb-4 filter brightness-0 invert"
-            />
-            <p className="text-gray-300 mb-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center space-x-2 mb-4">
+              <img 
+                src={fungroIcon}
+                alt="Funngro Logo" 
+                className="h-8 w-auto"
+              />
+              <span className="text-xl font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+                Funngro
+              </span>
+            </div>
+            <p className="text-neutral-300 mb-6 leading-relaxed">
               Empowering teens and companies to realize their full potential through innovative project-based work.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Twitter className="w-6 h-6" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Linkedin className="w-6 h-6" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Facebook className="w-6 h-6" />
-              </a>
+              {[
+                { icon: Twitter, href: "#", color: "hover:text-blue-400" },
+                { icon: Linkedin, href: "#", color: "hover:text-blue-500" },
+                { icon: Facebook, href: "#", color: "hover:text-blue-600" }
+              ].map((social, index) => (
+                <motion.a
+                  key={index}
+                  href={social.href}
+                  className={`text-neutral-400 ${social.color} transition-all duration-300 hover-scale`}
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <social.icon className="w-6 h-6" />
+                </motion.a>
+              ))}
             </div>
-          </div>
+          </motion.div>
           
           <div>
             <h3 className="text-lg font-semibold mb-4">For Teens</h3>

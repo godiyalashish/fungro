@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PROJECT_CATEGORIES, TEEN_FAQS, COMPANY_LOGOS } from "@/lib/constants";
 import { Heart, BookOpen, Award, DollarSign, Share2, Video, Globe, FileText, Palette, Smartphone } from "lucide-react";
+import { motion } from "framer-motion";
 
 // Icon mapping for project categories
 const categoryIconMap = {
@@ -33,49 +34,83 @@ export default function TeenPage() {
       <StatsSection />
       
       {/* Why Work in Teens Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-20 gradient-mesh">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why work in your Teens?
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-6">
+              Why work in your{" "}
+              <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                Teens?
+              </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Warren Buffet, Bill Gates, Steve Jobs, all started working in their Teens, do you need a better reason?
+            <p className="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
+              Warren Buffet, Bill Gates, Steve Jobs, all started working in their Teens. 
+              <br />
+              <span className="font-semibold text-purple-600">Do you need a better reason?</span>
             </p>
-          </div>
+          </motion.div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="bg-modern-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <DollarSign className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">First Income</h3>
-              <p className="text-gray-600">Work with real companies and earn money</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-modern-secondary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Heart className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Passion</h3>
-              <p className="text-gray-600">Make your passion as your profession</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-modern-success text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <BookOpen className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Learning</h3>
-              <p className="text-gray-600">Experiential learning by working on real projects</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-modern-accent text-gray-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Certification</h3>
-              <p className="text-gray-600">Build your profile by getting experience certificates</p>
-            </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 stagger-children">
+            {[
+              {
+                icon: DollarSign,
+                title: "First Income",
+                description: "Work with real companies and earn money",
+                gradient: "from-green-400 to-emerald-500",
+                delay: 0
+              },
+              {
+                icon: Heart,
+                title: "Passion",
+                description: "Make your passion as your profession",
+                gradient: "from-pink-400 to-rose-500",
+                delay: 1
+              },
+              {
+                icon: BookOpen,
+                title: "Learning",
+                description: "Experiential learning by working on real projects",
+                gradient: "from-blue-400 to-indigo-500",
+                delay: 2
+              },
+              {
+                icon: Award,
+                title: "Recognition",
+                description: "Build your portfolio and gain recognition",
+                gradient: "from-yellow-400 to-orange-500",
+                delay: 3
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={item.title}
+                className="text-center group"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                viewport={{ once: true }}
+                style={{ "--stagger-delay": index } as any}
+              >
+                <motion.div 
+                  className={`bg-gradient-to-r ${item.gradient} text-white w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-professional hover-lift group-hover:shadow-glow`}
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <item.icon className="w-10 h-10" />
+                </motion.div>
+                <h3 className="text-xl font-bold text-neutral-900 mb-3 group-hover:text-purple-600 transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-neutral-600 leading-relaxed">
+                  {item.description}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

@@ -1,109 +1,192 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sparkles, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion, AnimatePresence } from "framer-motion";
 import fungroIcon from "@/assets/fungro-icon.svg";
 
 export default function Navigation() {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   
   const isTeenPage = location === "/" || location === "/teen";
   const isCompanyPage = location === "/company";
   
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  
   return (
-    <nav className="bg-white shadow-lg sticky top-0 z-50">
+    <motion.nav 
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled 
+          ? 'bg-white/95 backdrop-blur-md shadow-professional border-b border-neutral-200' 
+          : 'bg-white shadow-professional'
+      }`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="flex items-center">
+          <motion.div 
+            className="flex items-center"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          >
             <Link href="/">
-              <img 
-                src={fungroIcon} 
-                alt="Funngro Logo" 
-                className="h-8 w-auto cursor-pointer"
-              />
+              <div className="flex items-center space-x-2 cursor-pointer">
+                <img 
+                  src={fungroIcon} 
+                  alt="Funngro Logo" 
+                  className="h-8 w-auto"
+                />
+                <motion.div
+                  className="hidden sm:block"
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                    Funngro
+                  </span>
+                </motion.div>
+              </div>
             </Link>
-          </div>
+          </motion.div>
           
           <div className="hidden md:flex space-x-8">
-            <Link href="/teen">
-              <span className={`font-semibold transition-colors cursor-pointer ${
-                isTeenPage ? "text-modern-primary" : "text-gray-700 hover:text-modern-primary"
-              }`}>
-                For Teens
-              </span>
-            </Link>
-            <Link href="/company">
-              <span className={`font-semibold transition-colors cursor-pointer ${
-                isCompanyPage ? "text-modern-primary" : "text-gray-700 hover:text-modern-primary"
-              }`}>
-                For Companies
-              </span>
-            </Link>
-            <a href="#" className="text-gray-700 hover:text-modern-primary font-semibold transition-colors">
-              About
-            </a>
-            <a href="#" className="text-gray-700 hover:text-modern-primary font-semibold transition-colors">
-              Blog
-            </a>
+            {[
+              { href: "/teen", label: "For Teens", icon: Sparkles, active: isTeenPage },
+              { href: "/company", label: "For Companies", icon: Zap, active: isCompanyPage },
+              { href: "#", label: "About", icon: null, active: false },
+              { href: "#", label: "Blog", icon: null, active: false }
+            ].map((item, index) => (
+              <motion.div
+                key={item.label}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 * index }}
+              >
+                <Link href={item.href}>
+                  <span className={`
+                    relative font-semibold transition-all duration-300 cursor-pointer inline-flex items-center space-x-1 py-2 px-3 rounded-lg hover-lift
+                    ${item.active 
+                      ? "text-purple-600 bg-purple-50" 
+                      : "text-neutral-700 hover:text-purple-600 hover:bg-purple-50/50"
+                    }
+                  `}>
+                    {item.icon && <item.icon className="w-4 h-4" />}
+                    <span>{item.label}</span>
+                    {item.active && (
+                      <motion.div
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-primary"
+                        layoutId="activeTab"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                  </span>
+                </Link>
+              </motion.div>
+            ))}
           </div>
           
-          <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" className="border-modern-primary text-modern-primary hover:bg-modern-primary hover:text-white">
+          <motion.div 
+            className="hidden md:flex items-center space-x-3"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3 }}
+          >
+            <Button 
+              variant="outline" 
+              className="border-purple-200 text-purple-600 hover:bg-purple-50 hover:border-purple-300 transition-all duration-300 hover-scale"
+            >
               Login
             </Button>
-            <Button className="bg-modern-secondary hover:bg-sky-600 text-white">
+            <Button className="gradient-primary text-white hover-lift shadow-professional">
+              <Sparkles className="w-4 h-4 mr-2" />
               Sign Up
             </Button>
-          </div>
+          </motion.div>
           
           <div className="md:hidden">
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="hover-scale"
             >
-              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              <motion.div
+                animate={{ rotate: mobileMenuOpen ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </motion.div>
             </Button>
           </div>
         </div>
       </div>
       
       {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-t">
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            <Link href="/teen">
-              <span className={`block px-3 py-2 font-semibold cursor-pointer ${
-                isTeenPage ? "text-modern-primary" : "text-gray-700"
-              }`}>
-                For Teens
-              </span>
-            </Link>
-            <Link href="/company">
-              <span className={`block px-3 py-2 font-semibold cursor-pointer ${
-                isCompanyPage ? "text-modern-primary" : "text-gray-700"
-              }`}>
-                For Companies
-              </span>
-            </Link>
-            <a href="#" className="block px-3 py-2 text-gray-700 hover:text-modern-primary">
-              About
-            </a>
-            <a href="#" className="block px-3 py-2 text-gray-700 hover:text-modern-primary">
-              Blog
-            </a>
-            <div className="px-3 py-2 space-y-2">
-              <Button variant="outline" className="w-full border-modern-primary text-modern-primary hover:bg-modern-primary hover:text-white">
-                Login
-              </Button>
-              <Button className="w-full bg-modern-secondary hover:bg-sky-600 text-white">
-                Sign Up
-              </Button>
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div 
+            className="md:hidden glass border-t border-neutral-200"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="px-4 pt-2 pb-3 space-y-1 stagger-children">
+              {[
+                { href: "/teen", label: "For Teens", icon: Sparkles },
+                { href: "/company", label: "For Companies", icon: Zap },
+                { href: "#", label: "About", icon: null },
+                { href: "#", label: "Blog", icon: null }
+              ].map((item, index) => (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  style={{ "--stagger-delay": index } as any}
+                >
+                  <Link href={item.href}>
+                    <div className="flex items-center space-x-2 px-3 py-2 rounded-lg text-neutral-700 hover:text-purple-600 hover:bg-purple-50 transition-all duration-300">
+                      {item.icon && <item.icon className="w-4 h-4" />}
+                      <span className="font-medium">{item.label}</span>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+              
+              <motion.div 
+                className="border-t border-neutral-200 pt-3 mt-3 space-y-2"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4 }}
+              >
+                <Button 
+                  variant="outline" 
+                  className="w-full border-purple-200 text-purple-600 hover:bg-purple-50"
+                >
+                  Login
+                </Button>
+                <Button className="w-full gradient-primary text-white">
+                  <Sparkles className="w-4 h-4 mr-2" />
+                  Sign Up
+                </Button>
+              </motion.div>
             </div>
-          </div>
-        </div>
-      )}
-    </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   );
 }
