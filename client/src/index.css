@@ -3,86 +3,103 @@
 @tailwind utilities;
 
 :root {
-  --background: hsl(0, 0%, 100%);
-  --foreground: hsl(224, 71%, 4%);
-  --muted: hsl(220, 13%, 95%);
-  --muted-foreground: hsl(220, 9%, 46%);
+  /* New Professional Deep Ocean Theme */
+  --background: hsl(210, 30%, 98%);
+  --foreground: hsl(220, 40%, 12%);
+  --muted: hsl(210, 25%, 93%);
+  --muted-foreground: hsl(220, 15%, 45%);
   --popover: hsl(0, 0%, 100%);
-  --popover-foreground: hsl(224, 71%, 4%);
+  --popover-foreground: hsl(220, 40%, 12%);
   --card: hsl(0, 0%, 100%);
-  --card-foreground: hsl(224, 71%, 4%);
-  --border: hsl(220, 13%, 91%);
-  --input: hsl(220, 13%, 91%);
-  --primary: hsl(262, 90%, 50%);
+  --card-foreground: hsl(220, 40%, 12%);
+  --border: hsl(210, 20%, 88%);
+  --input: hsl(210, 20%, 90%);
+  --primary: hsl(195, 85%, 35%);
   --primary-foreground: hsl(0, 0%, 100%);
-  --secondary: hsl(220, 14%, 96%);
-  --secondary-foreground: hsl(220, 9%, 9%);
-  --accent: hsl(220, 14%, 96%);
-  --accent-foreground: hsl(220, 9%, 9%);
-  --destructive: hsl(0, 84%, 60%);
+  --secondary: hsl(210, 25%, 93%);
+  --secondary-foreground: hsl(220, 30%, 18%);
+  --accent: hsl(25, 90%, 55%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 75%, 55%);
   --destructive-foreground: hsl(210, 40%, 98%);
-  --ring: hsl(262, 90%, 50%);
-  --radius: 1rem;
+  --ring: hsl(195, 85%, 45%);
+  --radius: 0.75rem;
   
-  /* New Professional Color Palette */
-  --primary-50: hsl(262, 100%, 97%);
-  --primary-100: hsl(262, 95%, 93%);
-  --primary-500: hsl(262, 90%, 50%);
-  --primary-600: hsl(262, 85%, 45%);
-  --primary-700: hsl(262, 80%, 40%);
+  /* Professional Ocean & Coral Color Palette */
+  --ocean-50: hsl(195, 70%, 95%);
+  --ocean-100: hsl(195, 65%, 88%);
+  --ocean-200: hsl(195, 60%, 78%);
+  --ocean-300: hsl(195, 55%, 65%);
+  --ocean-400: hsl(195, 75%, 50%);
+  --ocean-500: hsl(195, 85%, 35%);
+  --ocean-600: hsl(195, 90%, 28%);
+  --ocean-700: hsl(195, 95%, 22%);
+  --ocean-800: hsl(195, 100%, 16%);
+  --ocean-900: hsl(195, 100%, 12%);
   
-  --secondary-50: hsl(210, 40%, 98%);
-  --secondary-100: hsl(210, 40%, 96%);
-  --secondary-500: hsl(210, 100%, 60%);
-  --secondary-600: hsl(210, 100%, 55%);
-  --secondary-700: hsl(210, 100%, 50%);
+  --coral-50: hsl(25, 85%, 95%);
+  --coral-100: hsl(25, 80%, 88%);
+  --coral-200: hsl(25, 85%, 78%);
+  --coral-300: hsl(25, 88%, 68%);
+  --coral-400: hsl(25, 90%, 60%);
+  --coral-500: hsl(25, 90%, 55%);
+  --coral-600: hsl(25, 88%, 48%);
+  --coral-700: hsl(25, 85%, 42%);
+  --coral-800: hsl(25, 80%, 35%);
+  --coral-900: hsl(25, 75%, 28%);
   
-  --accent-50: hsl(45, 100%, 97%);
-  --accent-100: hsl(45, 100%, 92%);
-  --accent-500: hsl(45, 100%, 55%);
-  --accent-600: hsl(45, 95%, 50%);
-  --accent-700: hsl(45, 90%, 45%);
+  --emerald-50: hsl(155, 65%, 95%);
+  --emerald-100: hsl(155, 60%, 88%);
+  --emerald-500: hsl(155, 70%, 45%);
+  --emerald-600: hsl(155, 75%, 38%);
+  --emerald-700: hsl(155, 80%, 32%);
   
-  --success-50: hsl(142, 76%, 95%);
-  --success-500: hsl(142, 76%, 36%);
-  --success-600: hsl(142, 76%, 31%);
+  --amber-50: hsl(45, 90%, 95%);
+  --amber-100: hsl(45, 85%, 88%);
+  --amber-500: hsl(45, 95%, 60%);
+  --amber-600: hsl(45, 92%, 52%);
   
-  --warning-50: hsl(38, 92%, 95%);
-  --warning-500: hsl(38, 92%, 50%);
-  --warning-600: hsl(38, 87%, 45%);
+  --slate-50: hsl(210, 40%, 98%);
+  --slate-100: hsl(210, 35%, 93%);
+  --slate-200: hsl(210, 30%, 88%);
+  --slate-300: hsl(210, 25%, 78%);
+  --slate-400: hsl(210, 20%, 65%);
+  --slate-500: hsl(210, 18%, 50%);
+  --slate-600: hsl(210, 22%, 38%);
+  --slate-700: hsl(210, 28%, 28%);
+  --slate-800: hsl(210, 35%, 18%);
+  --slate-900: hsl(210, 40%, 12%);
   
-  --neutral-50: hsl(210, 20%, 98%);
-  --neutral-100: hsl(220, 14%, 96%);
-  --neutral-200: hsl(220, 13%, 91%);
-  --neutral-300: hsl(216, 12%, 84%);
-  --neutral-400: hsl(218, 11%, 65%);
-  --neutral-500: hsl(220, 9%, 46%);
-  --neutral-600: hsl(215, 14%, 34%);
-  --neutral-700: hsl(217, 19%, 27%);
-  --neutral-800: hsl(215, 28%, 17%);
-  --neutral-900: hsl(221, 39%, 11%);
+  /* Modern Professional Variables */
+  --modern-primary: var(--ocean-500);
+  --modern-secondary: var(--coral-500);
+  --modern-accent: var(--emerald-500);
+  --modern-success: var(--emerald-600);
+  --modern-warning: var(--amber-500);
+  --modern-error: var(--destructive);
 }
 
 .dark {
-  --background: hsl(224, 71%, 4%);
-  --foreground: hsl(210, 20%, 98%);
-  --muted: hsl(215, 28%, 17%);
-  --muted-foreground: hsl(218, 11%, 65%);
-  --popover: hsl(224, 71%, 4%);
-  --popover-foreground: hsl(210, 20%, 98%);
-  --card: hsl(215, 28%, 17%);
-  --card-foreground: hsl(210, 20%, 98%);
-  --border: hsl(215, 28%, 17%);
-  --input: hsl(215, 28%, 17%);
-  --primary: hsl(262, 95%, 70%);
-  --primary-foreground: hsl(224, 71%, 4%);
-  --secondary: hsl(215, 28%, 17%);
-  --secondary-foreground: hsl(210, 20%, 98%);
-  --accent: hsl(215, 28%, 17%);
-  --accent-foreground: hsl(210, 20%, 98%);
-  --destructive: hsl(0, 62%, 30%);
-  --destructive-foreground: hsl(210, 20%, 98%);
-  --ring: hsl(262, 95%, 70%);
+  /* Professional Dark Ocean Theme */
+  --background: hsl(195, 100%, 8%);
+  --foreground: hsl(210, 40%, 92%);
+  --muted: hsl(195, 85%, 12%);
+  --muted-foreground: hsl(210, 25%, 65%);
+  --popover: hsl(195, 95%, 10%);
+  --popover-foreground: hsl(210, 40%, 92%);
+  --card: hsl(195, 90%, 10%);
+  --card-foreground: hsl(210, 40%, 92%);
+  --border: hsl(195, 70%, 18%);
+  --input: hsl(195, 75%, 15%);
+  --primary: hsl(195, 80%, 65%);
+  --primary-foreground: hsl(195, 100%, 8%);
+  --secondary: hsl(195, 85%, 12%);
+  --secondary-foreground: hsl(210, 40%, 92%);
+  --accent: hsl(25, 85%, 65%);
+  --accent-foreground: hsl(195, 100%, 8%);
+  --destructive: hsl(0, 70%, 65%);
+  --destructive-foreground: hsl(210, 40%, 92%);
+  --ring: hsl(195, 80%, 65%);
   
   /* Dark mode professional colors */
   --neutral-50: hsl(215, 28%, 17%);
@@ -113,31 +130,38 @@
 }
 
 @layer utilities {
-  /* Modern Gradient Backgrounds */
+  /* Professional Ocean Theme Gradients */
   .gradient-primary {
-    background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-700) 100%);
+    background: linear-gradient(135deg, var(--ocean-500) 0%, var(--ocean-700) 100%);
   }
   
   .gradient-secondary {
-    background: linear-gradient(135deg, var(--secondary-500) 0%, var(--secondary-700) 100%);
+    background: linear-gradient(135deg, var(--coral-500) 0%, var(--coral-700) 100%);
   }
   
   .gradient-accent {
-    background: linear-gradient(135deg, var(--accent-500) 0%, var(--accent-700) 100%);
+    background: linear-gradient(135deg, var(--emerald-500) 0%, var(--emerald-700) 100%);
   }
   
   .gradient-hero {
     background: linear-gradient(135deg, 
-      var(--primary-500) 0%, 
-      var(--secondary-500) 50%, 
-      var(--primary-600) 100%);
+      var(--ocean-400) 0%, 
+      var(--coral-500) 35%, 
+      var(--ocean-600) 100%);
   }
   
   .gradient-mesh {
-    background: radial-gradient(circle at 20% 80%, var(--primary-500) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, var(--secondary-500) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, var(--accent-500) 0%, transparent 50%),
-                linear-gradient(135deg, var(--neutral-50) 0%, var(--neutral-100) 100%);
+    background: radial-gradient(circle at 20% 80%, var(--ocean-400) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, var(--coral-400) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, var(--emerald-400) 0%, transparent 50%),
+                linear-gradient(135deg, var(--slate-50) 0%, var(--slate-100) 100%);
+  }
+  
+  .gradient-corporate {
+    background: linear-gradient(135deg, 
+      var(--ocean-500) 0%, 
+      var(--slate-600) 50%, 
+      var(--ocean-700) 100%);
   }
   
   /* Glass Morphism Effects */
@@ -186,7 +210,7 @@
     transform: scale(1.05);
   }
   
-  /* Animation Classes */
+  /* Professional Animation Classes */
   .animate-fade-in {
     animation: fadeIn 0.6s ease-out;
   }
@@ -203,12 +227,45 @@
     animation: slideInRight 0.8s ease-out;
   }
   
+  .animate-slide-in-down {
+    animation: slideInDown 0.8s ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.6s ease-out;
+  }
+  
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
   
   .animate-pulse-slow {
     animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .animate-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .animate-shimmer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shimmer 2s infinite;
+  }
+  
+  .animate-morph-bg {
+    background-size: 200% 200%;
+    animation: morphBackground 8s ease-in-out infinite;
+  }
+  
+  .animate-gentle-rotate {
+    animation: gentleRotate 20s linear infinite;
   }
   
   /* Stagger animations for children */
@@ -263,14 +320,45 @@
 @keyframes pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }
-    color: var(--modern-secondary);
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes morphBackground {
+  0%, 100% { 
+    background-position: 0% 50%; 
   }
-  
-  .gradient-modern {
-    background: linear-gradient(135deg, var(--modern-primary), var(--modern-secondary));
+  50% { 
+    background-position: 100% 50%; 
   }
-  
-  .gradient-accent {
-    background: linear-gradient(135deg, var(--modern-secondary), var(--modern-accent));
+}
+
+@keyframes gentleRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes scaleIn {
+  from { 
+    opacity: 0; 
+    transform: scale(0.8); 
+  }
+  to { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+}
+
+@keyframes slideInDown {
+  from { 
+    opacity: 0; 
+    transform: translateY(-50px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
   }
 }

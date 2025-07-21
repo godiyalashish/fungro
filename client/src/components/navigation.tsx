@@ -24,14 +24,14 @@ export default function Navigation() {
   
   return (
     <motion.nav 
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`sticky top-0 z-50 transition-all duration-500 ${
         scrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-professional border-b border-neutral-200' 
-          : 'bg-white shadow-professional'
+          ? 'bg-white/90 backdrop-blur-xl shadow-professional-lg border-b border-slate-200/60 glass' 
+          : 'bg-gradient-to-r from-slate-50 to-ocean-50 shadow-professional'
       }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -53,7 +53,7 @@ export default function Navigation() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2 }}
                 >
-                  <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                  <span className="text-xl font-bold bg-gradient-to-r from-ocean-600 to-coral-600 bg-clip-text text-transparent">
                     Funngro
                   </span>
                 </motion.div>
@@ -78,8 +78,8 @@ export default function Navigation() {
                   <span className={`
                     relative font-semibold transition-all duration-300 cursor-pointer inline-flex items-center space-x-1 py-2 px-3 rounded-lg hover-lift
                     ${item.active 
-                      ? "text-purple-600 bg-purple-50" 
-                      : "text-neutral-700 hover:text-purple-600 hover:bg-purple-50/50"
+                      ? "text-ocean-600 bg-ocean-50 shadow-sm" 
+                      : "text-slate-700 hover:text-ocean-600 hover:bg-ocean-50/50"
                     }
                   `}>
                     {item.icon && <item.icon className="w-4 h-4" />}
@@ -105,11 +105,11 @@ export default function Navigation() {
           >
             <Button 
               variant="outline" 
-              className="border-purple-200 text-purple-600 hover:bg-purple-50 hover:border-purple-300 transition-all duration-300 hover-scale"
+              className="border-ocean-200 text-ocean-600 hover:bg-ocean-50 hover:border-ocean-300 transition-all duration-300 hover-scale"
             >
               Login
             </Button>
-            <Button className="gradient-primary text-white hover-lift shadow-professional">
+            <Button className="bg-gradient-to-r from-ocean-500 to-ocean-600 text-white hover-lift shadow-professional hover:from-ocean-600 hover:to-ocean-700">
               <Sparkles className="w-4 h-4 mr-2" />
               Sign Up
             </Button>
@@ -158,7 +158,7 @@ export default function Navigation() {
                   style={{ "--stagger-delay": index } as any}
                 >
                   <Link href={item.href}>
-                    <div className="flex items-center space-x-2 px-3 py-2 rounded-lg text-neutral-700 hover:text-purple-600 hover:bg-purple-50 transition-all duration-300">
+                    <div className="flex items-center space-x-2 px-3 py-2 rounded-lg text-slate-700 hover:text-ocean-600 hover:bg-ocean-50 transition-all duration-300">
                       {item.icon && <item.icon className="w-4 h-4" />}
                       <span className="font-medium">{item.label}</span>
                     </div>

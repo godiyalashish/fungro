@@ -5,10 +5,11 @@ import fungroIcon from "@/assets/fungro-icon.svg";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-gradient-to-br from-neutral-900 via-neutral-800 to-purple-900 text-white py-16 overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(120,113,246,0.3),transparent_50%)]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.3),transparent_50%)]"></div>
+    <footer className="relative bg-gradient-to-br from-slate-900 via-ocean-900 to-slate-800 text-white py-16 overflow-hidden">
+      {/* Background decoration with new theme */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(34,115,134,0.4),transparent_50%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(253,146,107,0.3),transparent_50%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(68,205,116,0.2),transparent_70%)]"></div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8">
@@ -24,7 +25,7 @@ export default function Footer() {
                 alt="Funngro Logo" 
                 className="h-8 w-auto"
               />
-              <span className="text-xl font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+              <span className="text-xl font-bold bg-gradient-to-r from-coral-400 to-amber-400 bg-clip-text text-transparent">
                 Funngro
               </span>
             </div>
