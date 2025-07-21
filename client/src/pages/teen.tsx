@@ -171,7 +171,7 @@ export default function TeenPage() {
               },
               {
                 title: "Graphics Design",
-                description: "Logos, brochures, pamphlets, website posts",
+                description: "Logos, brochures, pamphlets, website",
                 icon: Palette,
                 gradient: "from-slate-600 via-slate-700 to-slate-800",
                 accent: "from-purple-500 to-pink-500"
