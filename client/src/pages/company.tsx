@@ -150,7 +150,7 @@ export default function CompanyPage() {
               },
               {
                 title: "Customize your website", 
-                price: "₹5,000-₹15,000",
+                price: "₹1,000-9,000",
                 description: "Get a professional website designed to increase business growth",
                 icon: "globe",
                 gradient: "from-blue-500 to-cyan-500"

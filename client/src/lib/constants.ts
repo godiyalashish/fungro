@@ -1,7 +1,7 @@
 export const FUNNGRO_STATS = {
   companies: "4,000+",
   categories: "18",
-  teenlancers: "40,00,000+",
+  teenlancers: "90,00,00+",
   liveProjects: "1000+"
 };
 
