@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PROJECT_IDEAS, COMPANY_FAQS, COMPANY_LOGOS } from "@/lib/constants";
 import { ArrowRight, Lightbulb, DollarSign, BarChart3, FileText, Palette, TestTube, Mic, Search, Database, Globe, Share2, TrendingUp, Video } from "lucide-react";
+import { motion } from "framer-motion";
 
 // Icon mapping for project ideas
 const iconMap = {
@@ -72,38 +73,131 @@ export default function CompanyPage() {
       <StatsSection />
       
       {/* Project Ideas Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Project Ideas
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 bg-gradient-mesh opacity-30"></div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-6">
+              Project{" "}
+              <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                Ideas
+              </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
               Cost-effective, innovative and timely delivery of projects by smartest talent on planet (Teenlancers)
             </p>
-          </div>
+          </motion.div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {PROJECT_IDEAS.map((project, index) => {
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-children">
+            {[
+              {
+                title: "Build your brand",
+                price: "₹2,000",
+                description: "Get your logos, brochure designed professionally - 5 Samples",
+                icon: "palette",
+                gradient: "from-purple-500 to-indigo-600"
+              },
+              {
+                title: "Customize your website", 
+                price: "₹5,000-₹15,000",
+                description: "Get a professional website designed to increase business growth",
+                icon: "globe",
+                gradient: "from-blue-500 to-cyan-500"
+              },
+              {
+                title: "Reach more customers",
+                price: "₹5,000", 
+                description: "Get Teenlancers to manage your social media handles",
+                icon: "share-2",
+                gradient: "from-green-500 to-emerald-500"
+              },
+              {
+                title: "Share your message",
+                price: "₹1,500",
+                description: "Voice over in 15 different languages", 
+                icon: "mic",
+                gradient: "from-orange-500 to-red-500"
+              },
+              {
+                title: "Boost your growth",
+                price: "₹5,000-₹10,000",
+                description: "Get 100's of Teenlancers to increase your reach through social media",
+                icon: "trending-up", 
+                gradient: "from-pink-500 to-rose-500"
+              },
+              {
+                title: "Engage your audience",
+                price: "₹2,500",
+                description: "Create an explainer video for your company to get new customers",
+                icon: "video",
+                gradient: "from-indigo-500 to-purple-500"
+              }
+            ].map((project, index) => {
               const IconComponent = iconMap[project.icon as keyof typeof iconMap];
               return (
-                <Card key={index} className="bg-white hover:shadow-xl transition-shadow">
-                  <CardContent className="p-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center">
-                        <div className="bg-modern-primary text-white w-10 h-10 rounded-lg flex items-center justify-center mr-3">
-                          <IconComponent className="w-5 h-5" />
+                <motion.div
+                  key={project.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                  viewport={{ once: true }}
+                  style={{ "--stagger-delay": index } as any}
+                >
+                  <Card className="group bg-white border border-neutral-200 hover:border-neutral-300 hover-lift shadow-lg hover:shadow-professional-lg transition-all duration-500 h-full">
+                    <CardContent className="p-8 flex flex-col h-full">
+                      <div className="flex items-start justify-between mb-6">
+                        <div className="flex items-center flex-1">
+                          <motion.div 
+                            className={`bg-gradient-to-r ${project.gradient} w-12 h-12 rounded-xl flex items-center justify-center mr-4 shadow-lg group-hover:shadow-glow`}
+                            whileHover={{ scale: 1.1, rotate: 5 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                          >
+                            <IconComponent className="w-6 h-6 text-white" />
+                          </motion.div>
+                          <h3 className="text-xl font-bold text-neutral-900 group-hover:text-purple-600 transition-colors duration-300">
+                            {project.title}
+                          </h3>
                         </div>
-                        <h3 className="text-xl font-semibold text-gray-900">{project.title}</h3>
+                        <motion.span 
+                          className="text-2xl font-bold text-green-600 whitespace-nowrap ml-4"
+                          initial={{ scale: 0.9 }}
+                          whileHover={{ scale: 1.1 }}
+                          transition={{ type: "spring" }}
+                        >
+                          {project.price}
+                        </motion.span>
                       </div>
-                      <span className="text-modern-accent font-bold text-lg">{project.price}</span>
-                    </div>
-                    <p className="text-gray-600 mb-4">{project.description}</p>
-                    <Button className="bg-modern-secondary hover:bg-sky-700 text-white">
-                      Start Now <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </CardContent>
-                </Card>
+                      
+                      <p className="text-neutral-600 mb-6 leading-relaxed flex-1">
+                        {project.description}
+                      </p>
+                      
+                      <motion.div
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <Button className="w-full gradient-primary text-white hover-lift shadow-professional group-hover:shadow-glow">
+                          Start Now 
+                          <motion.div
+                            className="ml-2 inline-block"
+                            whileHover={{ x: 5 }}
+                            transition={{ type: "spring", stiffness: 400 }}
+                          >
+                            <ArrowRight className="h-4 w-4" />
+                          </motion.div>
+                        </Button>
+                      </motion.div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               );
             })}
           </div>
