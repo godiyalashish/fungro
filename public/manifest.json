@@ -1,0 +1,73 @@
+{
+  "name": "Funngro - Teen Freelancing Platform",
+  "short_name": "Funngro",
+  "description": "Join 40,00,000+ teenagers earning money through real projects with 4,000+ companies. Start your freelancing journey today with Funngro - India's #1 teen talent platform.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#7c3aed",
+  "orientation": "portrait-primary",
+  "categories": ["education", "productivity", "business"],
+  "lang": "en-IN",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512x512.png", 
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/screenshot-mobile.png",
+      "sizes": "640x1136", 
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Teen Dashboard",
+      "short_name": "Teen",
+      "description": "Access teen freelancing dashboard",
+      "url": "/teen",
+      "icons": [
+        {
+          "src": "/teen-icon.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Company Dashboard", 
+      "short_name": "Company",
+      "description": "Access company hiring dashboard",
+      "url": "/company",
+      "icons": [
+        {
+          "src": "/company-icon.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.funngro.app",
+      "id": "com.funngro.app"
+    }
+  ]
+}

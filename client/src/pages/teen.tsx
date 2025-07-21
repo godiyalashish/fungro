@@ -24,10 +24,54 @@ export default function TeenPage() {
   return (
     <>
       <SEOHead 
-        title="Funngro - Teen Freelancing Platform | Earn Money with Real Projects"
-        description="Join 40,00,000+ teenagers earning money through real projects with 4,000+ companies. Start your freelancing journey today with Funngro!"
-        keywords="teen freelancing, student jobs, teenage entrepreneurs, earn money online, project-based work, teen talent"
+        title="Teen Freelancing Platform - Earn Money with Real Projects | Funngro"
+        description="Join 40,00,000+ teenagers earning money through real projects with 4,000+ companies. Start your freelancing journey today with Funngro - India's #1 teen talent platform."
+        keywords="teen freelancing, student jobs, teenage entrepreneurs, earn money online, project-based work, teen talent, freelance platform india, teenage freelancers, funngro app, teen jobs india"
+        ogTitle="Teen Freelancing Platform - Earn Money with Real Projects | Funngro"
+        ogDescription="Join 40,00,000+ teenagers earning money through real projects with 4,000+ companies. Start your freelancing journey today!"
         canonicalUrl="https://www.funngro.com/teen"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Teen Freelancing Platform",
+          "description": "Platform for teenagers to earn money through real projects with companies",
+          "url": "https://www.funngro.com/teen",
+          "mainEntity": {
+            "@type": "Service",
+            "name": "Teen Freelancing Services",
+            "serviceType": "Freelancing Platform",
+            "provider": {
+              "@type": "Organization",
+              "name": "Funngro"
+            },
+            "audience": {
+              "@type": "Audience",
+              "audienceType": "Teenagers aged 13-19"
+            },
+            "areaServed": "India",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Teen Project Categories",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "name": "Social Media Marketing",
+                  "description": "Manage social media pages of companies"
+                },
+                {
+                  "@type": "Offer", 
+                  "name": "Video Creation",
+                  "description": "Create and edit videos for companies"
+                },
+                {
+                  "@type": "Offer",
+                  "name": "Website Design", 
+                  "description": "Design and build websites for companies"
+                }
+              ]
+            }
+          }
+        }}
       />
       
       <HeroSection type="teen" />

@@ -1,0 +1,37 @@
+# Robots.txt for Funngro.com
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.funngro.com/sitemap.xml
+
+# Allow all search engine bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Block crawling of sensitive files (if any)
+Disallow: /admin/
+Disallow: /api/internal/
+Disallow: /.env
+Disallow: /config/
+
+# Crawl delay (optional - set to 1 second for politeness)
+Crawl-delay: 1
+
+# Host directive (helps with subdomain canonicalization)
+Host: https://www.funngro.com
