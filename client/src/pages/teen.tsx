@@ -161,8 +161,8 @@ export default function TeenPage() {
       
       {/* Project Categories Section */}
       <section className="py-20 bg-white relative overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-blue-50/50"></div>
+        {/* Enhanced background decoration */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-indigo-50/50"></div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 

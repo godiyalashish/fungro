@@ -10,17 +10,45 @@ export default function HeroSection({ type }: HeroSectionProps) {
   if (type === "teen") {
     return (
       <section className="relative gradient-hero text-white py-24 overflow-hidden">
-        {/* Animated background elements */}
+        {/* Enhanced animated background elements */}
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
-            className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl"
-            animate={{ rotate: 360 }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute -top-40 -right-40 w-96 h-96 bg-indigo-400/15 rounded-full blur-3xl"
+            animate={{ 
+              rotate: 360,
+              scale: [1, 1.1, 1],
+              opacity: [0.15, 0.25, 0.15]
+            }}
+            transition={{ 
+              rotate: { duration: 25, repeat: Infinity, ease: "linear" },
+              scale: { duration: 8, repeat: Infinity, ease: "easeInOut" },
+              opacity: { duration: 6, repeat: Infinity, ease: "easeInOut" }
+            }}
           />
           <motion.div
-            className="absolute -bottom-40 -left-40 w-80 h-80 bg-yellow-400/10 rounded-full blur-3xl"
-            animate={{ rotate: -360 }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            className="absolute -bottom-40 -left-40 w-96 h-96 bg-emerald-400/15 rounded-full blur-3xl"
+            animate={{ 
+              rotate: -360,
+              scale: [1.1, 1, 1.1],
+              opacity: [0.15, 0.3, 0.15]
+            }}
+            transition={{ 
+              rotate: { duration: 30, repeat: Infinity, ease: "linear" },
+              scale: { duration: 10, repeat: Infinity, ease: "easeInOut" },
+              opacity: { duration: 8, repeat: Infinity, ease: "easeInOut" }
+            }}
+          />
+          <motion.div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-amber-400/10 rounded-full blur-2xl"
+            animate={{ 
+              scale: [1, 1.3, 1],
+              opacity: [0.1, 0.2, 0.1]
+            }}
+            transition={{ 
+              duration: 12, 
+              repeat: Infinity, 
+              ease: "easeInOut" 
+            }}
           />
         </div>
 
@@ -32,14 +60,15 @@ export default function HeroSection({ type }: HeroSectionProps) {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <motion.div 
-                className="glass text-white px-4 py-2 rounded-full text-sm font-semibold inline-flex items-center space-x-2 mb-6"
+                className="glass text-white px-6 py-3 rounded-full text-sm font-semibold inline-flex items-center space-x-2 mb-6 border border-white/20 backdrop-blur-sm"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
+                whileHover={{ scale: 1.05, y: -2 }}
               >
-                <Zap className="w-4 h-4 text-yellow-400" />
+                <Zap className="w-4 h-4 text-amber-300" />
                 <span>As seen on Shark Tank India</span>
-                <Star className="w-4 h-4 text-yellow-400" />
+                <Star className="w-4 h-4 text-amber-300" />
               </motion.div>
               
               <motion.h1 
@@ -48,10 +77,21 @@ export default function HeroSection({ type }: HeroSectionProps) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                TEEN
-                <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent animate-pulse-slow">
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.4, duration: 0.6 }}
+                >
+                  TEEN
+                </motion.span>
+                <motion.span 
+                  className="bg-gradient-to-r from-amber-300 via-emerald-300 to-indigo-300 bg-clip-text text-transparent"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.6, duration: 0.8, ease: [0.175, 0.885, 0.32, 1.275] }}
+                >
                   LANCERS
-                </span>
+                </motion.span>
               </motion.h1>
               
               <motion.div

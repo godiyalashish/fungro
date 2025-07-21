@@ -116,9 +116,9 @@ export default function CompanyPage() {
       <StatsSection />
       
       {/* Project Ideas Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute inset-0 bg-gradient-mesh opacity-30"></div>
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-indigo-50 relative overflow-hidden">
+        {/* Enhanced background decoration */}
+        <div className="absolute inset-0 bg-gradient-mesh opacity-40"></div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 

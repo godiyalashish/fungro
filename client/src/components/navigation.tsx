@@ -26,8 +26,8 @@ export default function Navigation() {
     <motion.nav 
       className={`sticky top-0 z-50 transition-all duration-500 ${
         scrolled 
-          ? 'bg-white/90 backdrop-blur-xl shadow-professional-lg border-b border-slate-200/60 glass' 
-          : 'bg-gradient-to-r from-slate-50 to-ocean-50 shadow-professional'
+          ? 'bg-white/95 backdrop-blur-xl shadow-xl border-b border-slate-200/70 glass' 
+          : 'bg-gradient-to-r from-slate-50 to-indigo-50 shadow-lg'
       }`}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -53,7 +53,7 @@ export default function Navigation() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2 }}
                 >
-                  <span className="text-xl font-bold bg-gradient-to-r from-ocean-600 to-coral-600 bg-clip-text text-transparent">
+                  <span className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-emerald-600 bg-clip-text text-transparent">
                     Funngro
                   </span>
                 </motion.div>
@@ -76,10 +76,10 @@ export default function Navigation() {
               >
                 <Link href={item.href}>
                   <span className={`
-                    relative font-semibold transition-all duration-300 cursor-pointer inline-flex items-center space-x-1 py-2 px-3 rounded-lg hover-lift
+                    relative font-semibold transition-all duration-300 cursor-pointer inline-flex items-center space-x-1 py-2 px-4 rounded-lg hover:scale-105 hover:shadow-md
                     ${item.active 
-                      ? "text-ocean-600 bg-ocean-50 shadow-sm" 
-                      : "text-slate-700 hover:text-ocean-600 hover:bg-ocean-50/50"
+                      ? "text-indigo-600 bg-indigo-50 shadow-sm border border-indigo-100" 
+                      : "text-slate-700 hover:text-indigo-600 hover:bg-indigo-50/50"
                     }
                   `}>
                     {item.icon && <item.icon className="w-4 h-4" />}
