@@ -63,10 +63,53 @@ export default function CompanyPage() {
   return (
     <>
       <SEOHead 
-        title="Funngro - Hire Talented Teenagers | Cost-Effective Project Solutions"
-        description="Hire talented teenagers for your projects. Cost-effective, innovative solutions from 40,00,000+ teen freelancers across 18+ categories."
-        keywords="hire teenagers, teen talent, cost-effective projects, teenage freelancers, company hiring, project outsourcing"
+        title="Hire Talented Teenagers - Cost-Effective Project Solutions | Funngro"
+        description="Hire talented teenagers for your projects. Cost-effective, innovative solutions from 40,00,000+ teen freelancers across 18+ categories. Smart talent for smart companies."
+        keywords="hire teenagers, teen talent, cost-effective projects, teenage freelancers, company hiring, project outsourcing, hire teen freelancers india, teenage workforce, funngro for companies"
+        ogTitle="Hire Talented Teenagers - Cost-Effective Project Solutions | Funngro"
+        ogDescription="Smart talent for smart companies. Hire from 40,00,000+ talented teenagers across 18+ project categories."
         canonicalUrl="https://www.funngro.com/company"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Hire Talented Teenagers",
+          "description": "Platform for companies to hire talented teenagers for cost-effective project solutions",
+          "url": "https://www.funngro.com/company",
+          "mainEntity": {
+            "@type": "Service",
+            "name": "Teen Talent Hiring Platform",
+            "serviceType": "Talent Marketplace",
+            "provider": {
+              "@type": "Organization",
+              "name": "Funngro"
+            },
+            "audience": {
+              "@type": "Audience",
+              "audienceType": "Companies and Businesses"
+            },
+            "areaServed": "India",
+            "offers": [
+              {
+                "@type": "Offer",
+                "name": "Build your brand",
+                "price": "₹2,000",
+                "description": "Get your logos, brochure designed professionally"
+              },
+              {
+                "@type": "Offer",
+                "name": "Customize your website",
+                "priceRange": "₹5,000-₹15,000", 
+                "description": "Get a professional website designed to increase business growth"
+              },
+              {
+                "@type": "Offer",
+                "name": "Reach more customers",
+                "price": "₹5,000",
+                "description": "Get Teenlancers to manage your social media handles"
+              }
+            ]
+          }
+        }}
       />
       
       <HeroSection type="company" />

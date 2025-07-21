@@ -8,6 +8,8 @@ import Footer from "@/components/footer";
 import TeenPage from "@/pages/teen";
 import CompanyPage from "@/pages/company";
 import NotFound from "@/pages/not-found";
+import PerformanceOptimizer from "@/components/performance-optimizer";
+import AnalyticsTracker from "@/components/analytics-tracker";
 
 function Router() {
   return (
@@ -25,6 +27,8 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <div className="min-h-screen flex flex-col">
+          <PerformanceOptimizer />
+          <AnalyticsTracker />
           <Navigation />
           <main className="flex-1">
             <Router />
